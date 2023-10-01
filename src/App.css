@@ -19,7 +19,26 @@ nav {
   font-weight: 500;
   color: rgb(184, 134, 11);
   height: 100%;
-  /* width: 90%; */
+}
+
+.scores-div {
+  margin: 0;
+  padding: 0 8px;
+  background-color: #18280E;
+  position: relative;
+  margin-top: -10px;
+  z-index: 2;
+}
+
+.score-best {
+  width: 35%;
+  position: relative;
+  right: 0;
+  padding: 4px;
+}
+
+.score-best p {
+  margin: 0;
 }
 
 /* .logo {
