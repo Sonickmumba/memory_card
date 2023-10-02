@@ -1,15 +1,34 @@
 import React, { useEffect, useState } from 'react'
 
 const Game = () => {
-  const [data, setData] = useState({});
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    console.log("sonick")
+    const getData = async () => {
+      try {
+        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/2");
+        const response = await fetcheData.json();
+        setData(response.message);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getData();
   }, [])
   return (
-    <><div>Game</div><button onClick={() => setCount((count) => count + 1)}>
-      count is {count}
-    </button></>
+    <div className="card">
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      { data.map((pic) => (
+        <div className="image-div">
+          <img src={`${pic}`} alt="Dog pic" />
+        </div>
+      ))}
+      <p>sonck</p>
+    </div>
   )
 };
 

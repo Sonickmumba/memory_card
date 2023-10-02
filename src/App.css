@@ -38,6 +38,11 @@ nav {
   margin: 0;
 }
 
+.image-div {
+  width: 600px;
+  height: 500px;
+}
+
 /* .logo {
   height: 6em;
   padding: 1.5em;
