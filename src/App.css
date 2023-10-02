@@ -24,10 +24,7 @@ nav {
 .scores-div {
   margin: 0;
   padding: 0 8px;
-  background-color: #18280E;
-  position: relative;
-  margin-top: -10px;
-  z-index: 2;
+  color: rgb(184, 134, 11);
 }
 
 .score-best {
