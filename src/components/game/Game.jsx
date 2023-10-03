@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const Game = () => {
   const [data, setData] = useState([]);
@@ -18,16 +19,16 @@ const Game = () => {
     }
     getData();
   }, [])
+  console.log(data);
   return (
     <div className="card">
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       { data.map((pic) => (
-        <div className="image-div">
+        <div className="image-div" key={uuidv4()}>
           <img src={`${pic}`} alt="Dog pic" />
         </div>
       ))}
-      <p>sonck</p>
     </div>
   )
 };
