@@ -5,7 +5,7 @@ import Score from './components/score/Score';
 import Game from './components/game/Game';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
