@@ -6,11 +6,12 @@ const Game = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [counter, setCounter] = useState(0);
+  // const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/2");
+        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/10");
         const response = await fetcheData.json();
         const collData = response.message.map((url) => ({
           id: uuidv4(),
@@ -60,8 +61,9 @@ const Game = () => {
   return (
     <div className="cards-div">
       {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      <p>Counter: {counter}</p>
+      {error && <p>Error: {error}</p>} 
+      <p>Score: {counter}</p>
+      {counter != 0 ? <p>BestScore: {counter}</p>: 0}
       { data.map((pic) => (
         <div className="image-div" key={pic.id} onClick={() => handleItemClick(pic.id)}>
           <img src={pic.url} alt="Dog pic" />
