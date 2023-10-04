@@ -9,7 +9,7 @@ const Game = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/10");
+        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/12");
         const response = await fetcheData.json();
         const collData = response.message.map((url) => ({
           id: uuidv4(),
@@ -30,7 +30,7 @@ const Game = () => {
     setData([...data.sort(() => Math.random() - 0.5)]);
   }
   return (
-    <div className="card" onClick={handleCardClick}>
+    <div className="cards-div" onClick={handleCardClick}>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       { data.map((pic) => (

@@ -36,8 +36,8 @@ nav {
 }
 
 .image-div {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 
 .image-div img {
@@ -53,9 +53,15 @@ nav {
 }
 
 .card {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  grid-gap: 10px;
-  padding: 2em;
   width: 100%;
+}
+
+.cards-div {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  margin: 0 auto;
+  padding: 20px;
+  justify-content: center;
 }
