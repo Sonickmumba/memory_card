@@ -37,6 +37,7 @@ const Game = () => {
         item.id === id ? { ...item, toggle: !item.toggle } : item
       )
     );
+    setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
   };
   console.log(data);
   return (
