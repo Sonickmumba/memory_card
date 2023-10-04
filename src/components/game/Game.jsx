@@ -26,15 +26,25 @@ const Game = () => {
     getData();
   }, [])
   
-  const handleCardClick = () => {
-    setData([...data.sort(() => Math.random() - 0.5)]);
-  }
+  // const handleItemClick = (id) => {
+  //   console.log(e.target);
+  //   setData([...data.sort(() => Math.random() - 0.5)]);
+  // }
+
+  const handleItemClick = (id) => {
+    setData((prevItems) =>
+    prevItems.map((item) =>
+        item.id === id ? { ...item, toggle: !item.toggle } : item
+      )
+    );
+  };
+  console.log(data);
   return (
-    <div className="cards-div" onClick={handleCardClick}>
+    <div className="cards-div">
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       { data.map((pic) => (
-        <div className="image-div" key={pic.id}>
+        <div className="image-div" key={pic.id} onClick={() => handleItemClick(pic.id)}>
           <img src={pic.url} alt="Dog pic" />
         </div>
       ))}
