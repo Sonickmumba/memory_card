@@ -45,14 +45,14 @@ const Game = () => {
       )
     );
 
-    // setData((prevItems) => {
-    //   const incrementedCounter = prevItems.reduce(
-    //     (count, item) => (item.toggle ? count + 1 : count),
-    //     0
-    //   );
-    //   setCounter(incrementedCounter);
-    //   return prevItems;
-    // });
+    setData((prevItems) => {
+      const incrementedCounter = prevItems.reduce(
+        (count, item) => (item.toggle ? count + 1 : count),
+        0
+      );
+      setCounter(incrementedCounter);
+      return prevItems;
+    });
 
     setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
   };
