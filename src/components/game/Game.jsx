@@ -5,12 +5,18 @@ const Game = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const getData = async () => {
       try {
-        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/2");
+        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/10");
         const response = await fetcheData.json();
-        setData(response.message);
+        const collData = response.message.map((url) => ({
+          id: uuidv4(),
+          url,
+          toggle: false,
+        }));
+        setData(collData);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -19,14 +25,17 @@ const Game = () => {
     }
     getData();
   }, [])
-  console.log(data);
+  
+  // const handleCardClick = () => {
+  //   setData([...data.sort(() => Math.random() - 0.5)]);
+  // }
   return (
-    <div className="card">
+    <div className="card" onClick={handleCardClick}>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       { data.map((pic) => (
-        <div className="image-div" key={uuidv4()}>
-          <img src={`${pic}`} alt="Dog pic" />
+        <div className="image-div" key={pic.id}>
+          <img src={pic.url} alt="Dog pic" />
         </div>
       ))}
     </div>
