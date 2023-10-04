@@ -39,7 +39,6 @@ const Game = () => {
     );
     setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
   };
-  console.log(data);
   return (
     <div className="cards-div">
       {loading && <p>Loading...</p>}
