@@ -26,9 +26,9 @@ const Game = () => {
     getData();
   }, [])
   
-  // const handleCardClick = () => {
-  //   setData([...data.sort(() => Math.random() - 0.5)]);
-  // }
+  const handleCardClick = () => {
+    setData([...data.sort(() => Math.random() - 0.5)]);
+  }
   return (
     <div className="card" onClick={handleCardClick}>
       {loading && <p>Loading...</p>}
