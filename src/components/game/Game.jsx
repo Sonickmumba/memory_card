@@ -41,7 +41,7 @@ const Game = () => {
 
     setData((prevItems) =>
     prevItems.map((item) =>
-        item.id === id && item.toggle != true? { ...item, toggle: !item.toggle } : item
+        item.id === id && item.toggle != true ? { ...item, toggle: !item.toggle } : item
       )
     );
 
