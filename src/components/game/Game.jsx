@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Score from '../score/Score';
 
 const Game = () => {
   const [data, setData] = useState([]);
@@ -59,8 +60,9 @@ const Game = () => {
   };
   return (
     <div className="cards-div">
+      <Score passData={counter}/>
       {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>} 
+      {error && <p>Error: {error}</p>}
       <p>Score: {counter}</p>
       {counter != 0 ? <p>BestScore: {counter}</p>: 0}
       { data.map((pic) => (

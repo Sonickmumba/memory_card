@@ -1,10 +1,11 @@
 // import React from 'react'
 
-const Score = () => {
+const Score = (props) => {
+  // const { counter } = props;
   return (
     <div className="scores-div">
       <div className="score-best">
-        <p>Scores: 3</p>
+        <p>Scores: {props.passData}</p>
         <p>Best scores: 9</p>
       </div>
     </div>
