@@ -60,9 +60,9 @@ const Game = () => {
   };
   return (
     <div className="cards-div">
-      <Score passData={counter}/>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
+      <Score passData={counter}/>
       <p>Score: {counter}</p>
       {counter != 0 ? <p>BestScore: {counter}</p>: 0}
       { data.map((pic) => (
