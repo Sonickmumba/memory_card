@@ -6,7 +6,11 @@ const Score = (props) => {
     <div className="scores-div">
       <div className="score-best">
         <p>Scores: {props.passData}</p>
-        {props.passData != 0 ? <p>BestScore: {props.passData}</p>: 0}
+        {props.passData !== 0 ? (
+          <p>BestScore: {props.passData}</p>
+        ) : (
+          <p>BestScore: 0</p>
+        )}
       </div>
     </div>
   )

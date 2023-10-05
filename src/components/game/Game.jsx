@@ -12,7 +12,7 @@ const Game = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/10");
+        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/2");
         const response = await fetcheData.json();
         const collData = response.message.map((url) => ({
           id: uuidv4(),
@@ -35,12 +35,6 @@ const Game = () => {
   // }
 
   const handleItemClick = (id) => {
-    // setData((prevItems) =>
-    // prevItems.map((item) =>
-    //     item.id === id ? { ...item, toggle: !item.toggle } : item
-    //   )
-    // );
-
     setData((prevItems) =>
     prevItems.map((item) =>
         item.id === id && item.toggle != true ? { ...item, toggle: !item.toggle } : item
@@ -55,9 +49,9 @@ const Game = () => {
       setCounter(incrementedCounter);
       return prevItems;
     });
-
     setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
   };
+
   return (
     <div className="cards-div">
       {loading && <p>Loading...</p>}
