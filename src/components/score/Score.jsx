@@ -1,7 +1,6 @@
 // import React from 'react'
 
 const Score = (props) => {
-  // const { counter } = props;
   return (
     <div className="scores-div">
       <div className="score-best">
