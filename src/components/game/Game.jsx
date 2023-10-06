@@ -37,7 +37,8 @@ const Game = () => {
   const handleItemClick = (id) => {
     setData((prevItems) =>
     prevItems.map((item) =>
-        item.id === id && item.toggle != true ? { ...item, toggle: !item.toggle } : item
+        item.id === id && item.toggle === false ? { ...item, toggle: !item.toggle } : item
+        // item.id === id && item.toggle === false ? count + 1 : o
       )
     );
 
@@ -51,7 +52,7 @@ const Game = () => {
     });
     setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
   };
-
+  console.log(data);
   return (
     <div className="cards-div">
       {loading && <p>Loading...</p>}
