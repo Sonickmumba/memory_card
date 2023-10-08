@@ -12,7 +12,7 @@ const Game = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/2");
+        const fetcheData = await fetch("https://dog.ceo/api/breed/hound/images/random/1");
         const response = await fetcheData.json();
         const collData = response.message.map((url) => ({
           id: uuidv4(),
@@ -29,24 +29,53 @@ const Game = () => {
     getData();
   }, [])
 
-  const handleItemClick = (id) => {
-    setData((prevItems) =>
-    prevItems.map((item) =>
-        item.id === id && item.toggle === false ? { ...item, toggle: !item.toggle } : item
-      )
-    );
+  // const handleItemClick = (id) => {
+  //   setData((prevItems) =>
+  //   prevItems.map((item) =>
+  //       item.id === id && item.toggle === false ? { ...item, toggle: !item.toggle } : item
+  //     )
+  //   );
 
+  //   setData((prevItems) => {
+  //     const incrementedCounter = prevItems.reduce(
+  //       (count, item) => (item.toggle ? count + 1 : count),
+  //       0
+  //     );
+  //     setCounter(incrementedCounter);
+  //     return prevItems;
+  //   });
+  //   setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
+  // };
+ 
+
+  const handleItemClick = (id) => {
     setData((prevItems) => {
-      const incrementedCounter = prevItems.reduce(
+      const updatedItems = prevItems.map((item) =>
+        item.id === id && !item.toggle ? { ...item, toggle: true } : item
+      );
+
+      const incrementedCounter = updatedItems.reduce(
         (count, item) => (item.toggle ? count + 1 : count),
         0
       );
-      setCounter(incrementedCounter);
-      return prevItems;
+
+      setCounter((prevCounter) => (updatedItems.some((item) => item.id === id && item.toggle) ? 0 : incrementedCounter));
+
+      // If the clicked image has toggle true, reset the score to 0
+      // if (updatedItems.some((item) => item.id === id && item.toggle)) {
+      //   setCounter(0);
+      // } else {
+      //   // Otherwise, update the counter
+      //   setCounter(incrementedCounter());
+      // }
+
+      // Shuffle the order of items
+      return [...updatedItems.sort(() => Math.random() - 0.5)];
     });
-    setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
   };
+
   console.log(data);
+
   return (
     <div className="cards-div">
       {loading && <p>Loading...</p>}
