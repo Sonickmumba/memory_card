@@ -28,11 +28,6 @@ const Game = () => {
     }
     getData();
   }, [])
-  
-  // const handleItemClick = (id) => {
-  //   console.log(e.target);
-  //   setData([...data.sort(() => Math.random() - 0.5)]);
-  // }
 
   const handleItemClick = (id) => {
     setData((prevItems) =>
