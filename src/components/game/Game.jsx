@@ -28,7 +28,6 @@ const Game = () => {
     }
     getData();
   }, [])
-
   // const handleItemClick = (id) => {
   //   setData((prevItems) =>
   //   prevItems.map((item) =>
@@ -46,8 +45,6 @@ const Game = () => {
   //   });
   //   setData((prevItems) => [...prevItems.sort(() => Math.random() - 0.5)]);
   // };
- 
-
   const handleItemClick = (id) => {
     setData((prevItems) => {
       const updatedItems = prevItems.map((item) =>
@@ -60,7 +57,6 @@ const Game = () => {
       );
 
       setCounter((prevCounter) => (updatedItems.some((item) => item.id === id && item.toggle) ? 0 : incrementedCounter));
-
       // If the clicked image has toggle true, reset the score to 0
       // if (updatedItems.some((item) => item.id === id && item.toggle)) {
       //   setCounter(0);
@@ -73,9 +69,7 @@ const Game = () => {
       return [...updatedItems.sort(() => Math.random() - 0.5)];
     });
   };
-
   console.log(data);
-
   return (
     <div className="cards-div">
       {loading && <p>Loading...</p>}
