@@ -11,7 +11,6 @@ function App() {
     <>
       <div className="card">
         <Header />
-        <Score />
         <Game />
       </div>
     </>
