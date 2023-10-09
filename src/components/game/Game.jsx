@@ -30,11 +30,10 @@ const Game = () => {
 
   const handleItemClick = (id) => {
     setData((prevItems) =>
-    prevItems.map((item) => (
-        console.log('sol'),
+    prevItems.map((item) => 
         item.id === id && item.toggle === false ? { ...item, toggle: !item.toggle } : item
       )
-    ));
+    );
     setData((prevItems) => {
       const incrementedCounter = prevItems.reduce(
         (count, item) => (item.toggle ? count + 1 : count),
