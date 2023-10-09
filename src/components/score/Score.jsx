@@ -1,7 +1,7 @@
 // import React from 'react'
+import { PropTypes } from "prop-types";
 
 const Score = (props) => {
-  // const { counter } = props;
   return (
     <div className="scores-div">
       <div className="score-best">
@@ -16,4 +16,10 @@ const Score = (props) => {
   )
 }
 
+Score.propTypes = {
+  passData: PropTypes.number.isRequired
+}
+
 export default Score
+
+
