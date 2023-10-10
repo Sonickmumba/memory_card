@@ -12,7 +12,7 @@ const Game = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const fetchedData = await fetch("https://dog.ceo/api/breed/hound/images/random/4");
+        const fetchedData = await fetch("https://dog.ceo/api/breed/hound/images/random/12");
         const response = await fetchedData.json();
         const collData = response.message.map((url) => ({
           id: uuidv4(),
@@ -77,7 +77,9 @@ const Game = () => {
     });
   };
   return (
-    <><Score passData={counter} bestScore={bestScore} /><div className="cards-div">
+    <>
+    <Score passData={counter} bestScore={bestScore} />
+    <div className="cards-div">
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {data.map((pic) => (

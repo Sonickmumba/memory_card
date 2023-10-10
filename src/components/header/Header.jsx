@@ -1,3 +1,5 @@
+import Score from '../score/Score';
+
 const Header = () => {
   return (
     <nav>
