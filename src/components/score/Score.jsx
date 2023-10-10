@@ -6,8 +6,8 @@ const Score = (props) => {
     <div className="scores-div">
       <div className="score-best">
         <p>Scores: {props.passData}</p>
-        {props.passData !== 0 ? (
-          <p>BestScore: {props.passData}</p>
+        {props.bestScore !== 0 ? (
+          <p>BestScore: {props.bestScore}</p>
         ) : (
           <p>BestScore: 0</p>
         )}
@@ -17,7 +17,8 @@ const Score = (props) => {
 }
 
 Score.propTypes = {
-  passData: PropTypes.number.isRequired
+  passData: PropTypes.number.isRequired,
+  bestScore: PropTypes.number.isRequired
 }
 
 export default Score
